@@ -29,6 +29,13 @@ const app = createApp({
             this.tasks.push(newTask)
             // Svuoto la stringa dopo averla inviata
             this.newTask = ''
+        },
+        toggleDone(id) {
+            this.tasks.forEach(task => {
+                if (id === task.id) {
+                    task.done = !task.done
+                }
+            })
         }
     }
 })

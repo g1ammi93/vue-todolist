@@ -31,7 +31,8 @@
             <h3 v-show="!tasks.length" class="text-center mt-5 text-danger">Non ci sono task</h3>
             <ul class="list-group mt-4">
                 <li v-for="task in tasks" class="list-group-item d-flex justify-content-between">
-                    {{task.text}}
+                    <span role="button" @click="toggleDone(task.id)"
+                        :class="{'text-decoration-line-through' : task.done === true}">{{task.text}}</span>
                     <button type="button" class="btn-close" @click="deleteTask(task.id)"></button>
                 </li>
                 <li class="list-group-item">
