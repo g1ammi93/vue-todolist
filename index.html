@@ -23,7 +23,29 @@
 </head>
 
 <body>
+    <div id="root">
+        <div class="container">
+            <h1 class="text-center mt-3">Cose da fare</h1>
 
+            <!-- List -->
+            <h3 v-show="!tasks.length" class="text-center mt-5 text-danger">Non ci sono task</h3>
+            <ul class="list-group mt-4">
+                <li v-for="task in tasks" class="list-group-item d-flex justify-content-between">
+                    {{task.text}}
+                    <button type="button" class="btn-close" @click="deleteTask(task.id)"></button>
+                </li>
+                <li class="list-group-item">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nuova Task" v-model.trim="newTask"
+                            @keyup.enter="addTask">
+                        <button class="btn btn-outline-secondary" type="button" @click="addTask">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>
