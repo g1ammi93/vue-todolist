@@ -30,6 +30,7 @@ const app = createApp({
             // Svuoto la stringa dopo averla inviata
             this.newTask = ''
         },
+        // Creo metodo per cambiare il Done dei tasks
         toggleDone(id) {
             this.tasks.forEach(task => {
                 if (id === task.id) {
